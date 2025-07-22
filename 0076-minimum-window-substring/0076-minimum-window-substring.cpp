@@ -2,38 +2,48 @@ class Solution {
 public:
     string minWindow(string s, string t) {
        if (t.size() > s.size()) return "";
+       unordered_map<char,int> t_window;
+       unordered_map<char,int> s_window;
+       for (char i:t) 
+           t_window[i]++;
+       
 
-        unordered_map<char, int> t_count;
-        for (char c : t) t_count[c]++;
+       int required=t_window.size();
+       int left=0;
+      int minLen=INT_MAX;
+      int startStr=0;
+       int need=0;
+       for(int right=0;right<s.size();right++)
+       {
+           s_window[s[right]]++;
+        //    str.push_back(s[right]);
+           if(t_window.count(s[right]) && s_window[s[right]] ==t_window[s[right]])
+             need++;
+           
 
-        int required = t_count.size();
-        unordered_map<char, int> window_count;
 
-        int left = 0, right = 0, formed = 0;
-        int min_len = INT_MAX, min_start = 0;
+           while(need==required)
+           {
+              if(right-left+1 <minLen)
+              {
+                minLen=right-left+1;
+                startStr=left;
+              }
+           
+            s_window[s[left]]--;
 
-        while (right < s.size()) {
-            char c = s[right];
-            window_count[c]++;
-            if (t_count.count(c) && window_count[c] == t_count[c])
-                formed++;
+            if(t_window.count(s[left]) && s_window[s[left]] < t_window[s[left]])
+                   need--;
+            left++;
 
-            while (formed == required) {
-                if (right - left + 1 < min_len) {
-                    min_len = right - left + 1;
-                    min_start = left;
-                }
+           }
+             
 
-                char left_char = s[left];
-                window_count[left_char]--;
-                if (t_count.count(left_char) && window_count[left_char] < t_count[left_char])
-                    formed--;
+       }
+      
 
-                left++;
-            }
-            right++;
-        }
+     return minLen == INT_MAX ? "" :s.substr(startStr,minLen);
 
-        return min_len == INT_MAX ? "" : s.substr(min_start, min_len);
+
     }
 };
