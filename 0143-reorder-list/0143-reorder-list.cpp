@@ -25,7 +25,7 @@ public:
 
         // partition
         ListNode* LL2Head = slow->next;
-         slow->next = nullptr;
+        slow->next = nullptr;
 
         // Invert 2nd half
         ListNode* prev = nullptr;
@@ -40,7 +40,7 @@ public:
         }
 
         LL2Head = prev;
-      temp = head;
+        temp = head;
         // concatinate
         while (LL2Head != nullptr && temp != nullptr) {
 
