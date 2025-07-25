@@ -14,8 +14,8 @@ public:
 
       ListNode* head=new ListNode();
       ListNode* ptr=head;
-      short carry=0;
-      short sum=0;
+      int carry=0;
+      int sum=0;
       while(l1 || l2 ||carry)
       {
         sum +=carry;
