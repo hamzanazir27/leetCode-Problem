@@ -24,6 +24,7 @@ public:
        for(right=1;right<lists.size(); right++)
        {
         lists[right]=handleSort(lists[left],lists[right]);
+        left++;
        }
 
 
@@ -35,12 +36,11 @@ public:
        
     }
 
-     ListNode* handleSort(ListNode* list1,ListNode* list2)
-     {
-            if (!list1) {
+    ListNode* handleSort(ListNode* list1, ListNode* list2) {
+        if (list1==nullptr) {
             return list2;
         }
-        if (!list2) {
+        if (list2==nullptr) {
             return list1;
         }
 
@@ -65,7 +65,7 @@ public:
         head=cur->next;
         delete cur;
         return head;
-    }//handleSort
+    }//handlesort
 
     
      
