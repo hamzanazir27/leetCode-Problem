@@ -1,4 +1,8 @@
 /**
+*
+*
+*
+
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
@@ -9,28 +13,46 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
  * right(right) {}
  * };
+ *
+ *
+ *
+ *
+ *
  */
 class Solution {
-    int maxSum = INT_MIN;
+    int maxSum=INT_MIN;
 
 public:
-    int maxPathSum(TreeNode* root) {   dfs(root); 
-        return maxSum;}
+    int maxPathSum(TreeNode* root) {  
+       
+           
+     bfs(root);
+     return maxSum;
 
-private:
-    int dfs(TreeNode* root) {
-        if (root == nullptr)
+
+
+
+        }
+
+
+
+private :
+     int bfs(TreeNode* node)
+     {
+        if(node==nullptr)
+        {
             return 0;
+        }
 
-        int maxleft = max(dfs(root->left), 0);
-        int maxright = max(dfs(root->right), 0);
+      int maxleft=max(bfs(node->left),0);  //9 //15 
+      int maxright=max(bfs(node->right),0);//20
+      int curSum =node->val+maxleft+maxright;//[-10+9+20=1]
+      maxSum=max(maxSum,curSum);//   <-9    //[]
 
-        int curMax = root->val + maxleft + maxright;
+      return node->val+max(maxleft,maxright);//
 
-        maxSum = max(curMax, maxSum);
+      
 
-        return root->val +
-               max(maxleft, maxright); /// q k main left maximum find kr raha ho
-                                       /// ya right max os node tk
-    }
+     }
+
 };
