@@ -68,12 +68,11 @@ public:
 
                     
                     return true;
-
               
               
                 }
               
-               else if(matrix[mid][innerMid]>target && matrix[mid][innerMid]>target)
+               else if(matrix[mid][innerMid]>target)
                {
                 right = innerMid-1;
                }
