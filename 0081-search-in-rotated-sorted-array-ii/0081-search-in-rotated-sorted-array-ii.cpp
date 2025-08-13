@@ -9,12 +9,19 @@ public:
             // int mid = (right + left) / 2;
             int mid =left + (right-left)/2;
 
+            
+
              if(nums[mid]==target)
                return true;
+// Skip duplicates
+            if (nums[left] == nums[mid] && nums[mid] == nums[right]) {
+                left++;
+                right--;
+            }
 
 
             // left side is sorted
-            if (nums[left] < nums[mid]) {
+            else if (nums[left] <= nums[mid]) {
                 // target in a left side
                 if (target >= nums[left] && target < nums[mid]) {
                     right = mid - 1;
