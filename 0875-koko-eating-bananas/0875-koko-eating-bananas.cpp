@@ -27,6 +27,12 @@
 // metlab maximum mid k bad rakh do else ager slice hour se bsr jaye tu slice ko
 // bara kro left mid k bad rakho
 
+
+// mera thought process dekhtey hovey is ko rewrite krdo 
+
+
+
+
 class Solution {
 public:
     int minEatingSpeed(vector<int>& piles, int h) {
@@ -40,11 +46,7 @@ public:
         while (minV <= maxV) {
             mid = minV + (maxV - minV) / 2;
 
-            if (h == helperCheck(piles, mid)) {
-                return mid;
-            }
-
-            else if (h >= helperCheck(piles, mid)) {
+            if (h >= helperCheck(piles, mid)) {
                 maxV = mid - 1;
             } else {
                 minV = mid + 1;
