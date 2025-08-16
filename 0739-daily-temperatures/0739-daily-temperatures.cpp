@@ -6,13 +6,13 @@ If there is no future day for which this is possible, put 0 for that day.
 
 Approach
 --------
-- We will iterate from right to left.
+- Iterate from right to left.
 - Maintain a stack of indices where temperatures are strictly decreasing.
 - For each day:
     1. Pop all days from stack that are not warmer than current day.
-    2. If stack is not empty, answer is difference in indices.
+    2. If stack is not empty, answer = (stack.top() - i).
     3. Push current day's index onto stack.
-- This ensures O(n) time complexity.
+- This ensures O(n) time complexity because each element is pushed/popped at most once.
 
 Template
 --------
@@ -21,6 +21,50 @@ Template
 3. Pop until a warmer temperature is found.
 4. Fill ans[i] with (stack.top() - i) if found, else 0.
 5. Push current index.
+
+Complexity
+----------
+- Time Complexity: O(n) → Each element is pushed and popped at most once.
+- Space Complexity: O(n) → For the stack + answer array.
+
+----------------------------------------------------------------
+Python Solution
+---------------
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        n = len(temperatures)
+        ans = [0] * n
+        stack = []
+        
+        for i in range(n - 1, -1, -1):
+            while stack and temperatures[i] >= temperatures[stack[-1]]:
+                stack.pop()
+            
+            if stack:
+                ans[i] = stack[-1] - i
+            stack.append(i)
+        
+        return ans
+
+----------------------------------------------------------------
+JavaScript Solution
+-------------------
+var dailyTemperatures = function(temperatures) {
+    let n = temperatures.length;
+    let ans = new Array(n).fill(0);
+    let stack = [];
+    
+    for (let i = n - 1; i >= 0; i--) {
+        while (stack.length && temperatures[i] >= temperatures[stack[stack.length - 1]]) {
+            stack.pop();
+        }
+        if (stack.length) {
+            ans[i] = stack[stack.length - 1] - i;
+        }
+        stack.push(i);
+    }
+    return ans;
+};
 */
 
 #include <bits/stdc++.h>
@@ -50,37 +94,3 @@ public:
         return ans;
     }
 };
-
-/*
-Python code
------------
-def dailyTemperatures(temperatures):
-    n = len(temperatures)
-    ans = [0] * n
-    stk = []
-    for i in range(n - 1, -1, -1):
-        while stk and temperatures[i] >= temperatures[stk[-1]]:
-            stk.pop()
-        if stk:
-            ans[i] = stk[-1] - i
-        stk.append(i)
-    return ans
-
-JavaScript code
----------------
-var dailyTemperatures = function(T) {
-    let n = T.length;
-    let ans = new Array(n).fill(0);
-    let stk = [];
-    for (let i = n - 1; i >= 0; i--) {
-        while (stk.length && T[i] >= T[stk[stk.length - 1]]) {
-            stk.pop();
-        }
-        if (stk.length) {
-            ans[i] = stk[stk.length - 1] - i;
-        }
-        stk.push(i);
-    }
-    return ans;
-};
-*/
