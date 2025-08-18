@@ -1,6 +1,13 @@
+
+
+
+
+
 class Solution {
 public:
     bool isValid(string s) {
+
+
         stack<char> stk;
         for (char el : s) {
 
@@ -21,7 +28,11 @@ public:
 
         } // for
 
+
+       if(stk.empty())
         return true;
+        else
+        return false;
 
     } // main func
 };
