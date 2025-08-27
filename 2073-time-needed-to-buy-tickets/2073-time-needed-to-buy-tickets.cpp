@@ -1,7 +1,35 @@
 
-// using queue
+
+
 
 class Solution {
+public:
+    int timeRequiredToBuy(vector<int>& tickets, int k) {
+      int result=0;
+ 
+      for(int i=0;i<tickets.size();i++)
+      {
+        if(i<=k)
+         result +=min(tickets[k],tickets[i]);
+         else
+         result +=min(tickets[k]-1,tickets[i]);
+
+      }
+
+
+      return result;
+    }
+};
+
+
+
+
+
+
+
+// using queue
+
+class Solution2 {
 public:
     int timeRequiredToBuy(vector<int>& tickets, int k) {
 
@@ -29,6 +57,17 @@ public:
         return time;
     }
 };
+
+// 3
+// ms
+// Beats
+// 20.49%
+// Analyze Complexity
+// Memory
+// 12.68
+// MB
+// // Beats
+// 8.00%
 
 // class Solution {
 // public:
