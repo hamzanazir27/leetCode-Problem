@@ -1,25 +1,27 @@
 class Solution {
 public:
     int countStudents(vector<int>& students, vector<int>& sandwiches) {
-        int count0 = 0, count1 = 0;
+        queue<int> studentq;
+        for (int st : students)
+            studentq.push(st);
 
-        // Count how many students want 0 and 1
-        for (int s : students) {
-            if (s == 0) count0++;
-            else count1++;
-        }
+        int sandwichesIndex = 0;
+        int processing = 0;
+        while (!studentq.empty() && processing < students.size()) {
 
-        // Process each sandwich
-        for (int sw : sandwiches) {
-            if (sw == 0) {
-                if (count0 > 0) count0--;  // one student eats
-                else break;                // no student wants 0 → stop
-            } else { // sw == 1
-                if (count1 > 0) count1--;  // one student eats
-                else break;                // no student wants 1 → stop
+            int currStudent = studentq.front();
+            studentq.pop();
+            if (currStudent == sandwiches[sandwichesIndex]) {
+                processing = 0;
+                sandwichesIndex++;
+
+            } else {
+               processing++;
+               studentq.push(currStudent);
+
             }
         }
 
-        return count0 + count1; // remaining students
+        return sandwiches.size()- sandwichesIndex;
     }
 };
