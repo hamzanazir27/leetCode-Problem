@@ -1,42 +1,42 @@
 class Solution {
 public:
     bool isNStraightHand(vector<int>& hand, int groupSize) {
-        // Step 1: Check if total cards can be evenly divided into groups
-        if (hand.size() % groupSize != 0) {
-            return false;
+        if(hand.size() %groupSize!=0)
+         return false ;
+
+        map<int,int> count;
+
+        for(int num:hand)
+        {
+          count[num]++;
+
         }
-        
-        // Step 2: Count frequency of each card
-        map<int, int> count;
-        for (int card : hand) {
-            count[card]++;
-        }
-        
-        // Step 3: Greedy approach - always start with smallest available card
-        for (auto& pair : count) {
-            int startCard = pair.first;
-            int frequency = pair.second;
-            
-            // If this card is already used up, skip it
-            if (frequency == 0) continue;
-            
-            // Try to form 'frequency' number of groups starting with 'startCard'
-            for (int i = 0; i < frequency; i++) {
-                // Try to form one group: [startCard, startCard+1, ..., startCard+groupSize-1]
-                for (int j = 0; j < groupSize; j++) {
-                    int neededCard = startCard + j;
-                    
-                    // Check if we have this card available
-                    if (count[neededCard] <= 0) {
-                        return false; // Can't form the group
+        for(auto ele:count)
+        {
+            int element=ele.first;
+            int freq=ele.second;
+// count = {1:1, 2:2, 3:2, 4:1, 6:1, 7:1, 8:1}
+
+    if(freq==0) continue;
+
+            for(int j=0;j<freq;j++)
+            {
+                for(int k=0;k<groupSize;k++)
+                {
+                  int  neededElemnt =element+k;
+                    if(!count[neededElemnt] || count[neededElemnt] <=0)
+                    {
+                        return false;
                     }
-                    
-                    // Use this card (decrease its count)
-                    count[neededCard]--;
-                }
-            }
-        }
+                    count[neededElemnt]--;
+      
+                }//make group
+
+            }//making posible groups for i-th elements
+        }//itrating all elments 
+
+        return true;
+
         
-        return true; // All cards successfully used in valid groups
     }
 };
