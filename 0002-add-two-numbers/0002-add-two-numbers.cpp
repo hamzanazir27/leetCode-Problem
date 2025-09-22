@@ -11,40 +11,22 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        return addNumber( l1, l2, 0); 
+    }
 
-      ListNode* head=new ListNode();
-      ListNode* ptr=head;
-      short carry=0;
-      short sum=0;
-      while(l1 || l2 ||carry)
-      {
-        sum +=carry;
-        if(l1)
-        {
-            sum+=l1->val;
-            l1=l1->next;
+    ListNode* addNumber(ListNode* l1, ListNode* l2, int carry) {
 
-        }
-        if(l2)
-        {
-            sum+=l2->val;
-            l2=l2->next;
+        // step 1 minmimum problem
+        if (!l1 && !l2 && carry == 0)
+            return nullptr;
 
-        }
-        carry = sum/10;
-        
-        ListNode* temp=new ListNode(sum%10);
-        ptr->next = temp;
-        ptr=temp;
-        sum=0;
-       
-      }//while 
+        // oder of exectuion  and relationship
+        int a = l1!=nullptr ? l1->val : 0;
+        int b = l2!=nullptr ? l2->val : 0;
+        int sum = a + b + carry;
 
-      ptr=head;
-      head =head->next;
-      delete ptr;
-      return head;
-
-
+        ListNode* node =new ListNode(
+            sum % 10, addNumber(l1?l1->next:nullptr, l2?l2->next:nullptr, sum / 10));
+        return node;
     }
 };
