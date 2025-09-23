@@ -11,33 +11,33 @@
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        if (!list1) {
-            return list2;
-        }
-        if (!list2) {
-            return list1;
-        }
 
-        ListNode* head = new ListNode();
-        ListNode* cur = head;
-        while (list1 &&  list2) {
-            if (list1->val > list2->val) {
-                cur->next = list2;
-                cur = list2;
-                list2 = list2->next;
-            } else {
-                cur->next = list1;
-                cur = list1;
-                list1 = list1->next;
-            }
-        }
-
-        if(!list1)cur->next=list2;
-        else  cur->next=list1;
-
-        cur =head;
-        head=cur->next;
-        delete cur;
-        return head;
+       ListNode dummy(0);
+       mergeAndSort( list1,  list2, &dummy);
+       return dummy.next;
     }
+
+void mergeAndSort(ListNode* list1, ListNode* list2,ListNode* sortedMerged)
+{
+    if(list1==nullptr && list2==nullptr)
+    {
+        return;
+    }
+
+    if(list1 &&  (!list2 || list1->val < list2->val))
+    {
+        sortedMerged->next=list1;
+        mergeAndSort(list1->next, list2, sortedMerged->next);
+    }
+    else
+    {
+       sortedMerged->next=list2;
+       mergeAndSort(list1, list2->next, sortedMerged->next);
+    }
+        
+
+
+}
+
+
 };
