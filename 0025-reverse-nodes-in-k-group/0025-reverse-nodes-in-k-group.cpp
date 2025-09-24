@@ -11,47 +11,47 @@
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
-        // add dummy node as a head
-        ListNode* dummy = new ListNode();
-        dummy->next = head;
 
-        // previous Group End
-        ListNode* prevGroupEnd = dummy;
-        while (true) {
-            // pointer which triverse whole LL
-            ListNode* ptr = prevGroupEnd;
-            int i = 0;
+        // Base case
+        if (!head || !head->next)
+            return head;
 
-            // check condintion   [d]-[1]-[2]-[3]-[4]-[5]-[6]-[7]-[8]-[9]
+        // cehck if value of k is exist or not
 
-            for (int i = 0; ptr != nullptr && i < k; i++) {
-                ptr = ptr->next;
-            }
-            if (!ptr)
-                break; // when link list comes to an end;
+        ListNode* node = head;
+        int count = 0; 
+        while (count < k) {
+            if (!node)
+                return head;
+            node = node->next;
+            count++;
+        }
 
-            ListNode* groupStart = prevGroupEnd->next;
-            ListNode* nextGroupStart = ptr->next;
-
-            ListNode* cur = groupStart;
-            ListNode* prev = nextGroupStart; // null
-
-                while (cur !=nextGroupStart) {
-
-                ListNode* n = cur->next;
-                cur->next = prev;
-                prev = cur;
-                cur = n;
-            }
-
-            prevGroupEnd->next=prev;
-            prevGroupEnd=groupStart;
+        ListNode* prev = nullptr;
+        ListNode* next = nullptr;
+        ListNode* cur = head;
+        int i = 0;
+        while (i < k) {
+            next = cur->next;
+            cur->next = prev;
+            prev = cur;
+            cur = next;
+            i++;
+        }
+        //cur == new head
+        //head old === tail
+         
+         //node it's last index we found earlier
+         head->next=reverseKGroup(node,  k) ;
 
 
-        } 
+         return prev;
 
-        head = dummy->next;
-        delete dummy;
-        return head;
+          
+         
+
+
+
+
     }
 };
