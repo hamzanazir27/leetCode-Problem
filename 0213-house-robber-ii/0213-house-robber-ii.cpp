@@ -74,7 +74,7 @@ public:
 
 // dp approch tabular approch 2 bottom up
 
-class Solution1{
+class Solution{
 public:
     int rob(vector<int>& nums) {
          int n=nums.size();
@@ -115,9 +115,8 @@ public:
 };
 // dp approch space optimization approch 3 
 
-// dp approch tabular approch 2 bottom up
 
-class Solution{
+class Solutionlppppppppppppppppppppp{
 public:
     int rob(vector<int>& nums) {
          int n=nums.size();
@@ -137,11 +136,8 @@ public:
     int helper(int start , int end ,vector<int>& nums)
     {
         vector<int> dp(nums.size()+1,-1);
-
-         
         int prevIntoPrevtemp1=nums[start];
         int prevtemp2=max(nums[start],nums[start+1]);
-           
         for(int i=start+2;i<=end;i++)
         {
         int rob=nums[i]+prevIntoPrevtemp1;
