@@ -72,9 +72,9 @@ public:
 };
 
 
-// dp approch memorization approch 1 bottom up
+// dp approch tabular approch 2 bottom up
 
-class Solution{
+class Solution1{
 public:
     int rob(vector<int>& nums) {
          int n=nums.size();
@@ -111,5 +111,46 @@ public:
           
         return dp[end];
                    
+    }
+};
+// dp approch space optimization approch 3 
+
+// dp approch tabular approch 2 bottom up
+
+class Solution{
+public:
+    int rob(vector<int>& nums) {
+         int n=nums.size();
+         if(n==1)
+           return nums[0];
+
+         if(n==2)
+           return max(nums[0],nums[1]);
+    
+
+        int a= helper(0,n-2,nums);
+        int b= helper(1,n-1, nums);
+        return max(a,b);
+        
+    }
+
+    int helper(int start , int end ,vector<int>& nums)
+    {
+        vector<int> dp(nums.size()+1,-1);
+
+         
+        int prevIntoPrevtemp1=nums[start];
+        int prevtemp2=max(nums[start],nums[start+1]);
+           
+        for(int i=start+2;i<=end;i++)
+        {
+        int rob=nums[i]+prevIntoPrevtemp1;
+        int skip=prevtemp2;
+            int cur=max(skip , rob);
+            int temPrevVal=prevtemp2;
+            prevtemp2=cur;
+            prevIntoPrevtemp1=temPrevVal;
+        }                   
+        return prevtemp2;       
     }
 };
