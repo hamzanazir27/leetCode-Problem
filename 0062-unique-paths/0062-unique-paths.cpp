@@ -38,11 +38,16 @@ public:
          if(m==1 or n==1)
           return 1;
 
-        if(dp[to_string(m)+to_string(n)])
-        {
-            return dp[to_string(m)+to_string(n)];
-        }
+        // key generate
+        string key = to_string(m) + "," + to_string(n);
 
-        return dp[to_string(m)+to_string(n)]=helper(m-1,n,dp)+helper(m,n-1,dp);
+        // agar already stored hai
+        if (dp.find(key) != dp.end())
+            return dp[key];
+
+        // recursive relation
+        dp[key] = helper(m - 1, n, dp) + helper(m, n - 1, dp);
+        return dp[key];
+
     }
 };
