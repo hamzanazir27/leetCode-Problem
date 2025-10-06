@@ -52,8 +52,8 @@ public:
 
     }
 };
-//dp top down approch memorization tabular
-class Solution {
+//dp ]bottom up approch  tabular
+class SolutionTabularApproch {
 public:
     int uniquePaths(int m, int n) {
     if(m==1 || n==1)
@@ -77,6 +77,42 @@ public:
 
 
          return dp[m][n];    
+
+
+
+    }
+
+   
+};
+//dp Space opmtimization
+class Solution{
+public:
+    int uniquePaths(int m, int n) {
+    if(m==1 || n==1)
+          return 1;
+
+
+        vector<int> dp(n, 1); 
+        // Pehli row sab 1 hoti hai
+
+        
+
+        for(int i=1;i<m;i++)
+        {
+
+            for(int j=1;j<n;j++)
+            { 
+
+            dp[j] = dp[j] + dp[j - 1];
+                // dp[j] -> upar wali cell
+                // dp[j-1] -> left wali cell
+ 
+            }
+        }
+
+
+
+         return dp[n-1];    
 
 
 
