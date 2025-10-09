@@ -13,7 +13,7 @@ public:
 };
 // Dp approch Memorization
 
-class Solution {
+class SolutionDpMemorization {
 public:
     int climbStairs(int n) {
 
@@ -31,4 +31,28 @@ public:
             return dp[n];
         return dp[n] = helper(n - 1, dp) + helper(n - 2, dp);
     }
+};
+// Dp approch Tabulation
+
+class Solution {
+public:
+    int climbStairs(int n) {
+
+        vector<int> dp(n + 1, -1);
+    
+
+        dp[0]=0;
+        dp[1]=1;
+        for(int i=2;i<=n;i++)
+        {
+            dp[i]=dp[i-1]+dp[i-2];
+        }
+
+       
+
+
+
+        return dp[n]+dp[n-1];
+    }
+   
 };
