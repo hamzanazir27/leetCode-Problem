@@ -1,3 +1,15 @@
+/*
+Understanding 
+-------------
+
+
+
+
+approch 
+-------
+*/
+
+
 class Solution {
 public:
     bool isNStraightHand(vector<int>& hand, int groupSize) {
