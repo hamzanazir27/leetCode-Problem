@@ -1,64 +1,57 @@
-// approch 1recurson
-
-
-class Solution3 {
+class SolutionRecursion {
 public:
     int coinChange(vector<int>& coins, int amount) {
-     int result= helper(coins ,amount);
-     return result==INT_MAX?-1:result;
+        int result = helper(coins, amount);
+
+        return result != INT_MAX ? result : -1;
     }
 
-   int helper(vector<int>& coins, int amount)
-   {
-        if (amount == 0) return 0;          // base case
-        if (amount < 0) return INT_MAX; 
-    int minVal=INT_MAX;
-    for(int coin:coins)
-    {
-        int remain=helper(coins,amount-coin);
-        if(remain!=INT_MAX)
-        {
-            minVal=min(minVal,1+remain);
+    int helper(vector<int>& coins, int amount) {
+        if (amount == 0)
+            return 0;
+
+        if (amount < 0)
+            return INT_MAX;
+        int mini = INT_MAX;
+
+        for (int i = 0; i < coins.size(); i++) {
+            int remain = helper(coins, amount - coins[i]);
+            if (remain != INT_MAX) {
+                mini =min(1+remain, mini);
+            }
         }
+        return mini;
     }
-     return minVal;
-   }
-
-
 };
-// approch 2 dp  
 
-
+// DP_Memorization
 class Solution {
 public:
     int coinChange(vector<int>& coins, int amount) {
-     unordered_map<int,int> dp;
-
-
-     int result= helper(coins ,amount,dp);
-     return result==INT_MAX?-1:result;
+        vector<int> dp(amount+1, -1);
+        int result = helper(coins, amount,dp);
+        return result != INT_MAX ? result : -1;
     }
 
-   int helper(vector<int>& coins, int amount,unordered_map<int,int> & dp)
-   {
-        if (amount == 0) return 0;          // base case
-        if (amount < 0) return INT_MAX; 
-       if(dp[amount] && dp[amount]!=-1)
-       {
-        return dp[amount];
-       }
+    int helper(vector<int>& coins, int amount,vector<int>& dp) {
+        if (amount == 0)
+            return 0;
 
-    int minVal=INT_MAX;
-    for(int coin:coins)
-    {
-        int remain=helper(coins,amount-coin,dp);
-        if(remain!=INT_MAX)
-        {
-            minVal=min(minVal,1+remain);
+        if (amount < 0)
+            return INT_MAX;
+        int mini = INT_MAX;
+
+         if(dp[amount]!=-1)
+              return  dp[amount];
+
+        for (int i = 0; i < coins.size(); i++) {
+            int remain = helper(coins, amount - coins[i],dp);
+            if (remain != INT_MAX) {
+                mini =min(1+remain, mini);
+            }
         }
+
+        
+        return dp[amount]=mini;
     }
-     return dp[amount]=minVal;
-   }
-
-
 };
