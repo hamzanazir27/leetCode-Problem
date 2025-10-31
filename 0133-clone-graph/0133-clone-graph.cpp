@@ -20,29 +20,37 @@ public:
 */
 
 class Solution {
+
+   
+
 public:
-  // Map to store old node → cloned node
-    unordered_map<Node*, Node*> mp;
-
     Node* cloneGraph(Node* node) {
-        if (node == NULL) return NULL;
-
-        // If node already cloned, just return it
-        if (mp.find(node) != mp.end()) {
-            return mp[node];
+        if(node==nullptr)
+        {
+            return nullptr;
         }
-
-        // Create a new node (clone) with same value
-        Node* cloneNode = new Node(node->val);
-        mp[node] = cloneNode;  // store in map
-
-        // Traverse all neighbors
-        for (auto neighbor : node->neighbors) {
-            // Recursively clone each neighbor
-            cloneNode->neighbors.push_back(cloneGraph(neighbor));
-        }
-
-        return cloneNode;
+    unordered_map<Node*,Node*> mp;
+    
+    return helper(node,mp);
     }
 
+    Node* helper(Node* node, unordered_map<Node*,Node*>& mp)
+    {
+
+     if(mp.find(node)!=mp.end())
+     {
+        return mp[node];
+     }
+
+     Node* cloneNode=new Node(node->val);
+     mp[node]=cloneNode;
+     for(auto neighbor:node->neighbors)
+     {
+         cloneNode->neighbors.push_back(helper(neighbor,mp))     ;  
+     }
+    
+
+     return cloneNode;
+
+    }
 };
