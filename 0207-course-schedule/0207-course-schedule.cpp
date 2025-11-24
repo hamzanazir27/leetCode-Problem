@@ -1,46 +1,47 @@
-// #include <vector>
-// #include <unordered_map>
-// #include <queue>
-// using namespace std;
-
 class Solution {
+
 public:
-    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+    bool isCyclic(int src,vector<bool>& vist,vector<bool>& recPath,vector<vector<int>>& edges)
+    {
+       vist[src]=true;
+       recPath[src]=true;
+       
+       for(auto& path:edges)
+       {
+        int u=path[1];
+        int v=path[0];// u-> v  (u is prerequset)
+        if(src==u) //src node is equal to u(pre req) so now 
+        {
+           if(!vist[v]) // if already visited
+           {
+              if(isCyclic(v,vist, recPath,edges))  
+                return true;
+           }
+           else if(recPath[v])
+              return true;
+        }//etc
 
-        unordered_map<int, vector<int>> graph;
-        unordered_map<int, int> count;
-        queue<int> q;
-        for (auto& ele : prerequisites) {
-            int a = ele[0];
-            int b = ele[1];
 
-            graph[b].push_back(a);
-            count[a]++;
-            if (count.find(b) == count.end()) {
-                count[b] = 0;
-            }
-        }
+       }
 
-        for (int i = 0; i < numCourses; i++) {
-            if (count[i] == 0)
-                q.push(i);
-        }
+      recPath[src]=false;
+      return false;
 
-        int countCourses = 0;
-        while (!q.empty()) {
-            countCourses++;
-            int a = q.front();
-            q.pop();
+    }
 
-            for (auto& neibCourse : graph[a])
-                if (count.find(neibCourse) != count.end()) {
-                    count[neibCourse]--;
-                    if (count[neibCourse] == 0) {
-                        q.push(neibCourse);
-                    }
-                }
-        }
 
-        return countCourses == numCourses;
+public:
+    bool canFinish(int n, vector<vector<int>>& edges) {
+     vector<bool> vist(n,false);
+     vector<bool> recPath(n,false);
+
+     for(int i=0; i<n;i++)
+     {
+         if(!vist[i])
+            return  !isCyclic(i,vist, recPath,edges);
+
+     }
+
+     return true;
     }
 };
