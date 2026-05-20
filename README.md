@@ -8,6 +8,7 @@
 | [0001-two-sum](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0001-two-sum/) | Easy |
 | [0015-3sum](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0015-3sum/) | Medium |
 | [0018-4sum](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0018-4sum/) | Medium |
+| [0026-remove-duplicates-from-sorted-array](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0026-remove-duplicates-from-sorted-array/) | Easy |
 | [0036-valid-sudoku](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0036-valid-sudoku/) | Medium |
 | [0049-group-anagrams](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0049-group-anagrams/) | Medium |
 | [0128-longest-consecutive-sequence](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0128-longest-consecutive-sequence/) | Medium |
@@ -72,4 +73,5 @@
 | ------- | ------- |
 | [0015-3sum](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0015-3sum/) | Medium |
 | [0018-4sum](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0018-4sum/) | Medium |
+| [0026-remove-duplicates-from-sorted-array](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0026-remove-duplicates-from-sorted-array/) | Easy |
 <!---LeetCode Topics End-->
