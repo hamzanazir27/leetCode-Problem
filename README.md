@@ -14,6 +14,7 @@
 | ------- | ------- |
 | [0001-two-sum](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0001-two-sum/) | Easy |
 | [0128-longest-consecutive-sequence](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0128-longest-consecutive-sequence/) | Medium |
+| [0242-valid-anagram](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0242-valid-anagram/) | Easy |
 | [0347-top-k-frequent-elements](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0347-top-k-frequent-elements/) | Medium |
 ## Union-Find
 | Problem Name | Difficulty |
@@ -30,6 +31,7 @@
 ## Sorting
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0242-valid-anagram](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0242-valid-anagram/) | Easy |
 | [0347-top-k-frequent-elements](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0347-top-k-frequent-elements/) | Medium |
 ## Heap (Priority Queue)
 | Problem Name | Difficulty |
@@ -47,4 +49,8 @@
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0347-top-k-frequent-elements](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0347-top-k-frequent-elements/) | Medium |
+## String
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0242-valid-anagram](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0242-valid-anagram/) | Easy |
 <!---LeetCode Topics End-->
