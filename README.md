@@ -66,6 +66,7 @@
 | [0049-group-anagrams](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0049-group-anagrams/) | Medium |
 | [0242-valid-anagram](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0242-valid-anagram/) | Easy |
 | [0567-permutation-in-string](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0567-permutation-in-string/) | Medium |
+| [0680-valid-palindrome-ii](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0680-valid-palindrome-ii/) | Easy |
 ## Matrix
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -77,8 +78,13 @@
 | [0018-4sum](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0018-4sum/) | Medium |
 | [0026-remove-duplicates-from-sorted-array](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0026-remove-duplicates-from-sorted-array/) | Easy |
 | [0567-permutation-in-string](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0567-permutation-in-string/) | Medium |
+| [0680-valid-palindrome-ii](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0680-valid-palindrome-ii/) | Easy |
 ## Sliding Window
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0567-permutation-in-string](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0567-permutation-in-string/) | Medium |
+## Greedy
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0680-valid-palindrome-ii](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0680-valid-palindrome-ii/) | Easy |
 <!---LeetCode Topics End-->
