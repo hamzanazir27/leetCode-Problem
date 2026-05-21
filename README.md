@@ -12,6 +12,7 @@
 | [0036-valid-sudoku](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0036-valid-sudoku/) | Medium |
 | [0049-group-anagrams](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0049-group-anagrams/) | Medium |
 | [0128-longest-consecutive-sequence](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0128-longest-consecutive-sequence/) | Medium |
+| [0219-contains-duplicate-ii](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0219-contains-duplicate-ii/) | Easy |
 | [0238-product-of-array-except-self](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0238-product-of-array-except-self/) | Medium |
 | [0347-top-k-frequent-elements](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0347-top-k-frequent-elements/) | Medium |
 ## Hash Table
@@ -21,6 +22,7 @@
 | [0036-valid-sudoku](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0036-valid-sudoku/) | Medium |
 | [0049-group-anagrams](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0049-group-anagrams/) | Medium |
 | [0128-longest-consecutive-sequence](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0128-longest-consecutive-sequence/) | Medium |
+| [0219-contains-duplicate-ii](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0219-contains-duplicate-ii/) | Easy |
 | [0242-valid-anagram](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0242-valid-anagram/) | Easy |
 | [0347-top-k-frequent-elements](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0347-top-k-frequent-elements/) | Medium |
 | [0567-permutation-in-string](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0567-permutation-in-string/) | Medium |
@@ -82,6 +84,7 @@
 ## Sliding Window
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0219-contains-duplicate-ii](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0219-contains-duplicate-ii/) | Easy |
 | [0567-permutation-in-string](https://github.com/hamzanazir27/leetCode-Problem/tree/main/0567-permutation-in-string/) | Medium |
 ## Greedy
 | Problem Name | Difficulty |
